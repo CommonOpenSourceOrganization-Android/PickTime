@@ -36,7 +36,7 @@ public class DatePickDialog extends Dialog implements OnChangeLisener {
     private int yearLimt = 5;
 
     //时间文本大小
-    private int textSize;
+    private int textSize = 24;
 
     private OnChangeLisener onChangeLisener;
 

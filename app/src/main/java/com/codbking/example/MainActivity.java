@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         dialog.setMessageFormat("yyyy-MM-dd HH时");
         //设置选择回调
         dialog.setOnChangeLisener(null);
-        dialog.setTextSize(20);
         dialog.setStartDate(new Date());
         //设置点击确定按钮回调
         dialog.setOnSureLisener(null);
