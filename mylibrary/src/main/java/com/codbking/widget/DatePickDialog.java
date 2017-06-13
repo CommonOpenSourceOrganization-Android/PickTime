@@ -43,7 +43,7 @@ public class DatePickDialog extends Dialog implements OnChangeLisener {
 
     //设置标题
     public void setTitle(String title) {
-       this.title=title;
+        this.title = title;
     }
 
     //设置模式
