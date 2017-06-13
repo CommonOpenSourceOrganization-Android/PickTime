@@ -46,7 +46,7 @@
  -  **Add the dependency**
 ```sh
 	dependencies {
-	        compile 'com.github.codbking:PickTime:v1.0.1'
+	        compile 'com.github.CommonOpenSourceOrganization-Android:PickTime:v1.0.2'
 	}
 ```
 
