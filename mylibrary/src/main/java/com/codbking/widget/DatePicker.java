@@ -9,6 +9,9 @@ import com.codbking.widget.view.WheelView;
 
 import java.util.Date;
 
+import static com.codbking.widget.R.id.hour;
+import static com.codbking.widget.R.id.year;
+
 /**
  * Created by codbking on 2016/8/10.
  */
@@ -56,15 +59,19 @@ class DatePicker extends BaseWheelPick {
         this.yearLimt = yearLimt;
     }
 
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
+    }
+
     //初始化值
     public void init() {
 
         this.minuteView = (WheelView) findViewById(R.id.minute);
-        this.hourView = (WheelView) findViewById(R.id.hour);
+        this.hourView = (WheelView) findViewById(hour);
         this.weekView = (TextView) findViewById(R.id.week);
         this.dayView = (WheelView) findViewById(R.id.day);
         this.monthView = (WheelView) findViewById(R.id.month);
-        this.yearView = (WheelView) findViewById(R.id.year);
+        this.yearView = (WheelView) findViewById(year);
 
         switch (type) {
             case TYPE_ALL:
@@ -214,16 +221,18 @@ class DatePicker extends BaseWheelPick {
 
     //获取选中日期
     public Date getSelectDate() {
-
         int year = yearArr[yearView.getCurrentItem()];
         int moth = mothArr[monthView.getCurrentItem()];
         int day = dayArr[dayView.getCurrentItem()];
-        int hour = hourArr[hourView.getCurrentItem()];
-        int minut = minutArr[minuteView.getCurrentItem()];
-
+        int hour = 0;
+        int minut = 0;
+        if (type == DateType.TYPE_ALL || type == DateType.TYPE_YMDHM || type == DateType.TYPE_HM) {
+            hour = hourArr[hourView.getCurrentItem()];
+            minut = minutArr[minuteView.getCurrentItem()];
+        } else if (type == DateType.TYPE_YMDH) {
+            hour = hourArr[hourView.getCurrentItem()];
+        }
         return DateUtils.getDate(year, moth, day, hour, minut);
-
     }
-
 
 }

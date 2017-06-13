@@ -17,14 +17,14 @@ import com.codbking.widget.genview.WheelGeneralAdapter;
 /**
  * Created by codbking on 2016/8/11.
  */
- abstract class BaseWheelPick
+abstract class BaseWheelPick
         extends LinearLayout
         implements OnWheelChangedListener
-        , OnWheelScrollListener
-         {
+        , OnWheelScrollListener {
 
-    protected int textColor = 0xffdddddd;
+    protected int textColor = 0xffbbbbbb;
     protected int selectColor = 0xff444444;
+    protected int textSize = 16;
     protected int split = 0xffdddddd;
     protected int splitHeight = 1;
     protected Context ctx;
@@ -54,6 +54,7 @@ import com.codbking.widget.genview.WheelGeneralAdapter;
         LayoutInflater.from(context).inflate(getLayout(), this);
     }
 
+
     protected void setWheelListener(WheelView wheelView, Object[] data, boolean isCyclic) {
         WheelGeneralAdapter viewAdapter = new WheelGeneralAdapter(ctx, genView);
         if (data[0] instanceof Integer) {
@@ -62,6 +63,7 @@ import com.codbking.widget.genview.WheelGeneralAdapter;
             viewAdapter.setData(data);
         }
         wheelView.setSelectTextColor(textColor, selectColor);
+        wheelView.setTextSize(textSize);
         wheelView.setCyclic(isCyclic);
         wheelView.setViewAdapter(viewAdapter);
         wheelView.addChangingListener(this);

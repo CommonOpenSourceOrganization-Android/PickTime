@@ -35,6 +35,9 @@ public class DatePickDialog extends Dialog implements OnChangeLisener {
     //年分限制，默认上下5年
     private int yearLimt = 5;
 
+    //时间文本大小
+    private int textSize;
+
     private OnChangeLisener onChangeLisener;
 
     private OnSureLisener onSureLisener;
@@ -76,6 +79,10 @@ public class DatePickDialog extends Dialog implements OnChangeLisener {
         this.onSureLisener = onSureLisener;
     }
 
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
+    }
+
     public DatePickDialog(Context context) {
         super(context, R.style.dialog_style);
     }
@@ -93,6 +100,7 @@ public class DatePickDialog extends Dialog implements OnChangeLisener {
         DatePicker picker = new DatePicker(getContext(), type);
         picker.setStartDate(startDate);
         picker.setYearLimt(yearLimt);
+        picker.setTextSize(textSize);
         picker.setOnChangeLisener(this);
         picker.init();
         return picker;
